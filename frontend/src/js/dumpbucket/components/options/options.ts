@@ -4,7 +4,7 @@ export default {
 
         saveToLocal: {
             get() {
-                return this.$store.getters.getSaveToLocal;
+                return this.$store.getters.dumpbucket_getSaveToLocal;
             },
 
             set() {

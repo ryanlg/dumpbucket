@@ -18,6 +18,11 @@ const mutations = {
         state.dumpbucket.saveToLocal = !state.dumpbucket.saveToLocal;
     },
 
+    MUTATE_SAVE_TO_LOCAL: (state: any, payload: boolean) => {
+
+        state.dumpbucket.saveToLocal = payload;
+    },
+
     MUTATE_CONTENT: (state: any, payload: string) => {
 
         state.dumpbucket.content = payload;
@@ -35,6 +40,11 @@ const actions = {
     toggleSaveToLocal: (context: any) => {
 
         context.commit('TOGGLE_SAVE_TO_LOCAL');
+    },
+
+    dumpbucket_setSaveToLocal: (context: any, payload: boolean) => {
+
+        context.commit('MUTATE_SAVE_TO_LOCAL', payload);
     },
 
     dumpbucket_setContent: (context: any, payload: string) => {
