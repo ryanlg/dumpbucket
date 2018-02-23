@@ -1,3 +1,5 @@
 # Todo List of Dumpbucket
 
-- do basic skeleton
+- save savetoload as well
+- clear content and savetoload if uncheck savetoload
+- give warning of during previous thing

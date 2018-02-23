@@ -24,7 +24,7 @@ const mutations = {
 
 const getters = {
 
-    getSaveToLocal: (state: any) => state.dumpbucket.saveToLocal,
+    dumpbucket_getSaveToLocal: (state: any) => state.dumpbucket.saveToLocal,
     dumpbucket_getContent: (state: any) => state.dumpbucket.content,
 };
 

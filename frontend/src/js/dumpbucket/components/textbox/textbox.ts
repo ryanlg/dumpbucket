@@ -13,11 +13,6 @@ export default {
 
     methods: {
 
-        dump(options: any) {
-
-            this.$store.dispatch('dumpbucket_setContent', '');
-        },
-
         didContentUpdate() {
 
             this.$emit('content_update');
