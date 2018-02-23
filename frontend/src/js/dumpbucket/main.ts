@@ -3,9 +3,9 @@ import { default as submitButton } from './components/submitbutton';
 import { default as options } from './components/options';
 
 import config from '@config';
-import * as SaveHelper from './util/SaveHelper';
 
 export default {
+
     components: {
         textbox,
         options,
@@ -15,25 +15,20 @@ export default {
     methods: {
 
         dump() {
-            if (this.$store.getters.dumpbucket_getSaveToLocal) {
-                SaveHelper.save(this.$store.getters.dumpbucket_getContent);
-            }
-            this.$store.dispatch('dumpbucket_setContent', '');
+
+            // handle everything in store
+            this.$store.dispatch('dumpbucket_dump');
         },
 
-        trySaveToLoad() {
-
-            console.log('hi');
+        trySave() {
             
-            if (this.$store.getters.dumpbucket_getSaveToLocal) {
-                SaveHelper.save(this.$store.getters.dumpbucket_getContent);
-            }
+            this.$store.dispatch('dumpbucket_persist_checked');
         },
     },
 
     created() {
 
-        this.$store.dispatch('dumpbucket_setContent', SaveHelper.load());
-        window.addEventListener('beforeunload', this.trySaveToLoad);
+        this.$store.dispatch('dumpbucket_load');
+        window.addEventListener('beforeunload', this.trySave);
     },
 };
