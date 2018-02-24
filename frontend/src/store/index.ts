@@ -79,7 +79,7 @@ const actions = {
     dumpbucket_load: (context: any) => {
         const content = localStorage.getItem(config.localStorage.contentKey);
 
-        if (content === 'undefined' || content === null) {
+        if (content === 'undefined' || content === null || content === '') {
 
             context.dispatch('dumpbucket_setContent', '');
         } else {
