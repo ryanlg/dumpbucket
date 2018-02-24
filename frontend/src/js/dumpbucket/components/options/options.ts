@@ -7,8 +7,8 @@ export default {
                 return this.$store.getters.dumpbucket_getSaveToLocal;
             },
 
-            set() {
-                this.$store.dispatch('toggleSaveToLocal');
+            set(value: boolean) {
+                this.$store.dispatch('dumpbucket_setSaveToLocal', value);
             },
         },
     },

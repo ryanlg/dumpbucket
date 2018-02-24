@@ -45,6 +45,11 @@ const actions = {
     dumpbucket_setSaveToLocal: (context: any, payload: boolean) => {
 
         context.commit('MUTATE_SAVE_TO_LOCAL', payload);
+
+        if (!payload) {
+
+            context.dispatch('dumpbucket_deleteContentFromStorage');
+        }
     },
 
     dumpbucket_setContent: (context: any, payload: string) => {
@@ -56,7 +61,7 @@ const actions = {
     dumpbucket_dump: (context: any) => {
 
         context.commit('MUTATE_CONTENT', '');
-        localStorage.setItem(config.localStorage.contentKey, '');
+        context.dispatch('dumpbucket_deleteContentFromStorage');
     },
 
     // save content to localstorage
@@ -87,6 +92,11 @@ const actions = {
             context.dispatch('dumpbucket_setContent', content);
             context.dispatch('dumpbucket_setSaveToLocal', true);
         }
+    },
+
+    dumpbucket_deleteContentFromStorage: () => {
+
+        localStorage.removeItem(config.localStorage.contentKey);
     },
 };
 
