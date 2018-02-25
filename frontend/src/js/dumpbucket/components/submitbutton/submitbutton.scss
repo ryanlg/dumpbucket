@@ -1,0 +1,26 @@
+$button-color: #007bff;
+$button-color-hover: #0069d9;
+$button-color-focus: #0452a7;
+
+.submit-button {
+    color: white;
+    border-radius: 3px;
+    border: 0px;
+    padding: 10px 15px;
+    background-color: $button-color;
+    float: right;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $button-color-hover;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active {
+        outline: none;
+        background-color: $button-color-focus;
+    }
+}
