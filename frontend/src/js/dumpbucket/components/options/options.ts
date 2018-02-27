@@ -1,4 +1,11 @@
+import { CheckSlider } from './components';
+
 export default {
+
+    components: {
+
+        'check-slider': CheckSlider,
+    },
 
     computed: {
 
