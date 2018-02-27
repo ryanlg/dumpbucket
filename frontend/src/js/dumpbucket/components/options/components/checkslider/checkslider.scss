@@ -1,61 +1,54 @@
 @import 'node_modules/compass-mixins/lib/_compass';
 
-.checkbox{
+.checkbox {
     position: relative;
     display: inline-block;
-    
-    &:after, &:before{
-      font-family: FontAwesome;
-      font-feature-settings: normal;
-      font-kerning: auto;
-      font-language-override: normal;
-      font-stretch: normal;
-      font-style: normal;
-      font-synthesis: weight style;
-      font-variant: normal;
-      font-weight: normal;
-      text-rendering: auto;
+
+    .bar {
+        width: 40px;
+        height: 12px;
+        background: #ccc;
+        position: relative;
+        display: inline-block;
+        @include border-radius(46px);
+        @include transition(0.4s);
     }
-  
-    label{
-      width: 90px;
-      height: 42px;
-      background: #ccc;
-      position: relative;
-      display: inline-block;
-      @include border-radius(46px);
-      @include transition(.4s);
-      &:after{
+
+    .thumb {
         content: '';
         position: absolute;
-        width: 50px;
-        height: 50px;
+        width: 20px;
+        height: 20px;
         @include border-radius(100%);
         left: 0;
-        top: -5px;
-         z-index: 2;
+        top: -4px;
+        z-index: 2;
         background: #fff;
-        @include box-shadow(0 0 5px rgba(0,0,0,.2));
-        @include transition(.4s);
-      }
+        @include box-shadow(0 0 5px rgba(0,0,0,0.2));
+        @include transition(0.3s);
     }
-    input{
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 5;
-      opacity: 0;
-     cursor:pointer;
-      &:hover +label:after{
-        @include box-shadow(0 2px 15px 0 rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15))
-      }
-      &:checked + label{
-        &:after{
-          left: 40px;
+
+    input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
+
+        &:hover + .bar .thumb {
+            @include box-shadow(0 2px 15px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15));
         }
-      }
-          
-    }  
-  }
+
+        &:checked + .bar .thumb {
+            transform: translateX(20px);
+            background-color: #007bff;
+        }
+
+        &:checked + .bar {
+            background-color: rgba($color: #007bff, $alpha: 0.5);
+        }
+    }
+}
