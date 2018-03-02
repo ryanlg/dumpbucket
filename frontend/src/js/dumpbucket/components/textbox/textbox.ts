@@ -12,10 +12,5 @@ export default {
     },
 
     methods: {
-
-        didContentUpdate() {
-
-            this.$emit('content_update');
-        },
     },
 };

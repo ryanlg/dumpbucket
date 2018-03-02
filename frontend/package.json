@@ -16,6 +16,7 @@
     },
     "license": "GPL-3.0",
     "dependencies": {
+        "@types/gsap": "^1.19.2",
         "axios": "^0.17.1",
         "babel-runtime": "^6.26.0",
         "compass-mixins": "^0.12.10",
