@@ -21,25 +21,42 @@ export default {
             const text = this.$refs.textbox.$el;
             const split = new SplitText(text);
             const chars = split.chars;
+            const timeline = new gsap.TimelineMax();
             
             function random(min: number, max: number) {
                 return (Math.random() * (max - min)) + min;
             }
             
             chars.sort(() => {return 0.5 - Math.random(); });
+            const tweens = [] as gsap.TweenLite[];
             chars.forEach((v: any, i: any) => {
-                gsap.TweenMax.to(v, 3, {
-                    opacity: 0,
+                tweens.push(gsap.TweenLite.to(v, 3, {
                     x: random(-500, 500),
                     y: random(-500, 500),
                     z: random(-500, 500),
                     scale: .1,
-                    delay: i * .05,
-                });
-            });            
+                }));
+            });
+
+            const delay = (chars.length > 200 ? 1 * (chars.length / 100) : 3) / (chars.length);
+            timeline.add(tweens, '+=0', 'start', delay);
+            const position = chars.length > 200 ? 0.1 / delay : 1;
+            
+            timeline.addCallback(this.fadeoutAll, '-=1');
+            timeline.resume();
 
             // handle everything in store
             this.$store.dispatch('dumpbucket_dump');
+        },
+
+        fadeoutAll() {
+
+            const dumpb = this.$refs.dumpbucket;
+            
+            gsap.TweenMax.to(dumpb, 2, { 
+                opacity: 0,
+                ease: gsap.Power3.easeOut,
+            });
         },
 
         trySave() {
