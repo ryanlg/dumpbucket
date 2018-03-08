@@ -9,6 +9,12 @@ export default {
                 this.$store.dispatch('dumpbucket_setContent', value);
             },
         },
+
+        editable: {
+            get() {
+                return this.$store.getters.dumpbucket_getEditable;
+            },
+        },
     },
 
     methods: {

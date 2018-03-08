@@ -18,6 +18,8 @@ export default {
 
         dump() {
 
+            this.$store.dispatch('dumpbucket_setEditable', false);
+
             const text = this.$refs.textbox.$el;
             const split = new SplitText(text);
             const chars = split.chars;

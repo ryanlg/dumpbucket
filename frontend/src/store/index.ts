@@ -2,12 +2,14 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import config from '@config';
+import { stat } from 'fs';
 
 const state = {
 
     dumpbucket: {
         saveToLocal: false,
         content: '',
+        isEditable: true,
     },
 };
 
@@ -27,12 +29,18 @@ const mutations = {
 
         state.dumpbucket.content = payload;
     },
+
+    MUTATE_EDITABLE: (state: any, payload: boolean) => {
+
+        state.dumpbucket.isEditable = payload;
+    },
 };
 
 const getters = {
 
     dumpbucket_getSaveToLocal: (state: any) => state.dumpbucket.saveToLocal,
     dumpbucket_getContent: (state: any) => state.dumpbucket.content,
+    dumpbucket_getEditable: (state: any) => state.dumpbucket.isEditable,
 };
 
 const actions = {
@@ -97,6 +105,11 @@ const actions = {
     dumpbucket_deleteContentFromStorage: () => {
 
         localStorage.removeItem(config.localStorage.contentKey);
+    },
+
+    dumpbucket_setEditable: (context: any, payload: boolean) => {
+
+        context.commit('MUTATE_EDITABLE', payload);
     },
 };
 
