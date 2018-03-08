@@ -12,5 +12,15 @@ export default {
     },
 
     methods: {
+
+        contentChanged(event: any) {
+
+            this.content = event.target.innerText;
+        },
+    },
+    
+    mounted() {
+
+        this.$el.innerText = this.content;
     },
 };
