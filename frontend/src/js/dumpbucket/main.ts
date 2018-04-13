@@ -40,7 +40,7 @@ export default {
                 }));
             });
 
-            const delay = (chars.length > 200 ? 1 * (chars.length / 100) : 3) / (chars.length);
+            const delay = (chars.length > 200 ? (chars.length / 200) : 3) / (chars.length);
             timeline.add(tweens, '+=0', 'start', delay);
             const position = chars.length > 200 ? 0.1 / delay : 1;
             
