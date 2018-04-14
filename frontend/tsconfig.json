@@ -10,7 +10,9 @@
       "paths": {
           "@dumpbucket": ["src/js/dumpbucket"],
           "@dumpbucket/*": ["src/js/dumpbucket/*"],
-          "@config": ["config/GeneralConfig"]
+          "@config": ["config/GeneralConfig"],
+          "@assets": ["assets"],
+          "@assets/*": ["assets/*"]
       }
     },
 

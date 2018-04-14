@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import axios from 'axios';
-import { dumpbucket } from 'src/js';
+
+import { dumpbucket, intro } from 'src/js';
+
 import FullPage from 'vue-fullpage.js/src/FullPage.vue';
 import 'fullpage.js';
 
@@ -14,6 +16,7 @@ export default {
     components: {
         dumpbucket,
         FullPage,
+        intro,
     },
 
     data() {
