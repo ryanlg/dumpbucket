@@ -60,6 +60,7 @@ module.exports = {
         alias: {
             // has to be vue.esm.js, or it adds extra .defualt to `new Vue`
             vue$: 'vue/dist/vue.esm.js',
+            jquery: 'jquery/src/jquery',
         },
         // it has to be here, not the other plugins
         plugins: [
@@ -80,6 +81,12 @@ module.exports = {
                 // Has to be stringified
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
             },
+        }),
+
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
         }),
     ],
 
