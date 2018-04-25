@@ -13,5 +13,13 @@
         bottom: 0;
         width: 50px;
         margin-bottom: 30px;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 10px;
+        transition: background-color 0.15s linear;
+    }
+
+    &-arrow:hover{
+        background-color: rgba($color: #d4d4d4, $alpha: 0.4)
     }
 }
