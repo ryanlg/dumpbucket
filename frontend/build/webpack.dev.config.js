@@ -16,7 +16,15 @@ module.exports = webpackMerge(baseWebpackConfig, {
                 test: /\.scss$/,
                 use: [
                     { loader: 'style-loader' },
-                    { loader: 'css-loader' },
+                    { loader: 'css-loader', options: { importLoaders: 1 } },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            config: {
+                                path: __dirname + '/postcss.config.js'
+                            },
+                        },
+                    },
                     { loader: 'sass-loader' },
                 ],
             },
@@ -26,6 +34,14 @@ module.exports = webpackMerge(baseWebpackConfig, {
                 loaders: [
                     'style-loader',
                     'css-loader?sourceMap',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            config: {
+                                path: __dirname + '/postcss.config.js'
+                            },
+                        },
+                    },
                 ],
             },
 
