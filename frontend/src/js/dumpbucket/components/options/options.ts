@@ -2,6 +2,13 @@ import { CheckSlider } from './components';
 
 export default {
 
+    data() {
+
+        return {
+            showExplain: false,
+        };
+    },
+
     components: {
 
         'check-slider': CheckSlider,
@@ -17,6 +24,13 @@ export default {
             set(value: boolean) {
                 this.$store.dispatch('dumpbucket_setSaveToLocal', value);
             },
+        },
+    },
+
+    methods: {
+
+        toggleExplain() {
+            this.showExplain = !this.showExplain;
         },
     },
 };

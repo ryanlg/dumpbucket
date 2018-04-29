@@ -2,5 +2,6 @@
     <!-- <input type="checkbox" v-model="saveToLocal"> Save to Local -->
     <check-slider class="check-slider" v-model="saveToLocal"></check-slider>
     <span>Save</span>
-    <img src="~assets/img/round-info.png">
+    <img @click="toggleExplain" src="~assets/img/round-info.png">
+    <span v-if="showExplain" class="explain">This only save your content to your local browser cache, won't upload anything.</span>
 </div>
