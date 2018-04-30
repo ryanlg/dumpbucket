@@ -1,11 +1,27 @@
 .intro{
 
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 
-    &-title{
+    p {
+        color: gray;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    p + p {
+        margin-top: 0;
+    }
+
+    &-wrapper {
         width: 300px;
+        flex: none;
+    }
+
+    &-title{
+        width: 100%;
     }
 
     &-arrow {
